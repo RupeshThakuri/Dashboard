@@ -35,7 +35,6 @@ import Button from '@mui/material/Button';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 
 //files import
-import EditVacancy from './EditVacancy';
 import AddVacancy from './AddVacancy';
 
 const VacancyList = () => {
@@ -258,7 +257,7 @@ const VacancyList = () => {
                             Add Vacancy
                         </Button>
                     </div>
-                    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+                    <Paper sx={{ width: '100%', overflow: 'hidden' }} className='mt-4'>
                         <TableContainer sx={{
                             maxHeight: 440,
                             maxWidth: `${widthTable}px`

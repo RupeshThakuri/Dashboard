@@ -33,7 +33,7 @@ const page = () => {
                             </div>
                             <ProjectsTable />
                         </div>
-                    )};
+                    )}
                 </>
             </Layout>
         </>

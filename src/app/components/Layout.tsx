@@ -30,6 +30,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 
 import Image from 'next/image';
@@ -42,6 +43,8 @@ interface Props {
   window?: () => Window;
   children: React.ReactNode;
 }
+
+
 
 export default function Layout(props: Props) {
   const { window } = props;
@@ -71,6 +74,11 @@ export default function Layout(props: Props) {
   const [IsCollapse, setIsCollapse] = React.useState(false);
   const handleCollapse = () => {
     setIsCollapse(!IsCollapse);
+  }
+
+  //logout
+  const handleLogout = () => {
+    router.push('/signup')
   }
 
   const drawer = (
@@ -168,9 +176,14 @@ export default function Layout(props: Props) {
           >
             <DashboardIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Dashboard
-          </Typography>
+          <div className='flex justify-between w-full'>
+            <Typography variant="h6" noWrap component="div">
+              Dashboard
+            </Typography>
+            <div className="logout cursor-pointer" onClick={handleLogout}>
+              <h2>Logout <ExitToAppIcon /></h2>
+            </div>
+          </div>
         </Toolbar>
       </AppBar>
       <Box

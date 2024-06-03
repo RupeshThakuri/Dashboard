@@ -35,7 +35,7 @@ const courses = () => {
                         </div>
                         <Courses />
                     </div>
-                )};
+                )}
             </>
         </Layout>
     )

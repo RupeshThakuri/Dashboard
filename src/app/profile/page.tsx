@@ -1,4 +1,4 @@
-import ProfileCards from './profileCards'
+import ProfileCards from './profileCards';
 import Layout from '../components/Layout';
 
 const Profile = () => {
