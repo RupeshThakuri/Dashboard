@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
@@ -6,9 +6,8 @@ import axios from 'axios';
 import { Admin } from '@/types/admin';
 import { useRouter } from 'next/navigation';
 
-
-//for tostify success after insert items
-import {ToastContainer ,toast, Bounce } from 'react-toastify';
+// For toastify success after inserting items
+import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
@@ -21,8 +20,7 @@ const Login = () => {
     profile_image: null,
   });
 
-
-  //api fetch
+  // API fetch
   const getData = () => {
     axios.get("http://127.0.0.1:8000/api/dashboard/")
       .then(response => {
@@ -31,26 +29,26 @@ const Login = () => {
       })
       .catch(error => {
         console.log("The error is ", error);
-      })
-  }
+      });
+  };
 
   useEffect(() => {
     getData();
-  }, [])
+  }, []);
 
-
-  //to verify the login
+  // To verify the login
   const router = useRouter();
 
-  const [uname, setUname] = useState<String>('');
-  const [pass, setPass] = useState<String>('');
+  const [uname, setUname] = useState<string>('');
+  const [pass, setPass] = useState<string>('');
 
   const userVerification = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (uname === adminData.username && pass === adminData.password) {
+      console.log("User verified, saving data to local storage.");
+      localStorage.setItem("adminData", JSON.stringify(adminData));
       router.push("/dashboard");
-    }
-    else {
+    } else {
       toast.error('Invalid Username or Password!', {
         position: "top-right",
         autoClose: 5000,
@@ -63,13 +61,13 @@ const Login = () => {
         transition: Bounce,
       });
     }
-  }
+  };
 
   return (
     <>
-      {/* componen */}
-      <ToastContainer/>
-      <section className="min-h-screen flex items-stretch text-white ">
+      {/* Toast container for notifications */}
+      <ToastContainer />
+      <section className="min-h-screen flex items-stretch text-white">
         <div
           className="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center"
           style={{ backgroundImage: "url(https://images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);" }}>
@@ -125,9 +123,9 @@ const Login = () => {
             </form>
           </div>
         </div>
-      </section >
+      </section>
     </>
   )
 }
 
-export default Login
+export default Login;

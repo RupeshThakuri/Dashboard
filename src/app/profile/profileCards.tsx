@@ -43,7 +43,7 @@ const ProfileCards = () => {
   return (
     <>
       {editProfile ? (
-        <EditProfile editProfileHandle={handleEdit} adminData= {adminData}/>
+        <EditProfile editProfileHandle={handleEdit} adminData={adminData} />
       ) : (
         <>
           <h2 className="font-bold text-lg">Profile</h2>
@@ -68,14 +68,14 @@ const ProfileCards = () => {
                   <div className="relative w-24 h-24 bg-white rounded-full overflow-hidden border-4 border-white">
                     {adminData.profile_image ? (
                       <Image
-                        src='/Images/react.png'
+                        src={adminData.profile_image} 
                         alt="Profile picture"
                         layout="fill"
                         objectFit="cover"
                       />
                     ) : (
                       <Image
-                        src="/Images/react.png"
+                        src="/Images/profile_placeholder.png"
                         alt="Profile picture placeholder"
                         layout="fill"
                         objectFit="cover"
